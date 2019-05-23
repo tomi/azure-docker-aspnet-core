@@ -8,9 +8,9 @@ trigger:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '{{ containerRegistryConnection.Id }}'
+  dockerRegistryServiceConnection: '{{ AzureContainerRegistry.Id }}'
   imageRepository: '{{#toAlphaNumericString imageRepository 50}}{{/toAlphaNumericString}}'
-  containerRegistry: '{{ containerRegistryConnection.Authorization.Parameters.loginServer }}'
+  containerRegistry: '{{ AzureContainerRegistry.Authorization.Parameters.loginServer }}'
   dockerfilePath: '{{ dockerfilePath }}'
   tag: '$(Build.BuildId)'
   
